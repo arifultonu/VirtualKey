@@ -58,24 +58,25 @@ public class VirtualKeyMain {
 		public static void BrowseMenu(int option) {
 	        switch(option) {
 
-	            case 1: // Show Files in Directory
-	               // this.ShowFiles();
-	                
-	               // this.Show();
+	            case 1: 	            	
+	            	System.out.println("All File Shown: \n");
+	            	
+	                break;	                
+	            case 2:
+	            	System.out.println("Add New File Name: \n");
+	            	
+	                break;
+	            case 3: 
+	            	System.out.println("File Successfully Deleted: \n");
 	                
 	                break;
-	                
-	            case 2: // Show File Options menu
-//	            	ScreenService.setCurrentScreen(ScreenService.FileOptionsScreen);
-//	                ScreenService.getCurrentScreen().Show();
-//	                ScreenService.getCurrentScreen().GetUserInput();
-	                
-	               // this.Show();
-	                
+	            case 4: 
+	            	System.out.println("File found: \n");
+	            	
 	                break;
 	                
 	            default:
-	                System.out.println("Sorry Wrong Menu Selected !!!");
+	                System.out.println("Closed Application!!!");
 	                break;
 	        }
 	        
