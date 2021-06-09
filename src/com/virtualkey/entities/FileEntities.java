@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FileEntities {
-	public static final String name = "src/directory/";
+	public static final String name = "src/DocDirectory/";
 
 	   //TODO: Possibly use a HashMap? Too complex for now.
 	    private ArrayList<File> files = new ArrayList<File>();
@@ -25,11 +25,8 @@ public class FileEntities {
 	    	files.forEach(f -> System.out.println(f));
 	    }
 
-	    public ArrayList<File> fillFiles() {
-	    	
-	        File[] directoryFiles = Dfiles.listFiles();
-	        
-	        
+	    public ArrayList<File> fillFiles() {	    	
+	        File[] directoryFiles = Dfiles.listFiles();      
 	        
 	    	files.clear();
 	    	for (int i = 0; i < directoryFiles.length; i++) {
@@ -38,13 +35,11 @@ public class FileEntities {
 	    		}
 	    	}
 	    	
-	    	Collections.sort(files);
-	    	
+	    	Collections.sort(files);	    	
 	    	return files;
 	    }
 
-	    public ArrayList<File> getFiles() {
-	    	
+	    public ArrayList<File> getFiles() {	    	
 	    	fillFiles();
 	    	return files;
 	    }
