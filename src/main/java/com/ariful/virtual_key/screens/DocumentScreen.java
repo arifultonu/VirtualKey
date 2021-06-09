@@ -15,22 +15,21 @@ import com.ariful.virtual_key.services.DocumentServices;
 
 public class DocumentScreen implements Screen {
 	
-	private DocumentDirectory dir = new DocumentDirectory();
-	
+	private DocumentDirectory dir = new DocumentDirectory();	
 	private ArrayList<String> options = new ArrayList<>();
 
     public DocumentScreen() {
     	
-    	options.add("1. Add a File");
-        options.add("2. Delete A File");
-        options.add("3. Search A File");
-        options.add("4. Return to Menu");
+    	options.add("1. Add Document");
+        options.add("2. Delete Document");
+        options.add("3. Search Document");
+        options.add("4. Return to Main Menu");
         
     }
     
     @Override
     public void MainMenu() {
-    	System.out.println("File Options Menu");
+    	System.out.println("Document Options Menu");
         for (String s : options) {
             System.out.println(s);
         }
@@ -65,7 +64,7 @@ public class DocumentScreen implements Screen {
                 break;
                 
             default:
-                System.out.println("Invalid Option");
+                System.out.println("Menu Not Found!");
                 break;                
                 
         }
@@ -73,20 +72,20 @@ public class DocumentScreen implements Screen {
     }
    
     public void AddFile() {
-        System.out.println("Please Enter the Filename:");
+        System.out.println("Please Enter the Document Name:");
         String fileName = this.getInputString();
-        System.out.println("You are adding a file named: " + fileName);
+        System.out.println("You are adding a Document named: " + fileName);
         
 		try {
 			Path path = FileSystems.getDefault().getPath(DocumentDirectory.name + fileName).toAbsolutePath();
 			File file = new File(dir.getName() + fileName);
 			
 		      if (file.createNewFile()) {
-		    	  System.out.println("File created: " + file.getName());
+		    	  System.out.println("Document Created Successfully! " + file.getName());
 		    	  dir.getFiles().add(file);
 		    	  
 		      } else {
-		        System.out.println("This File Already Exits, no need to add another");
+		        System.out.println("Sorry You Can't Add Duplicate Document!");
 		      }
 		}catch (IOException e){
 			System.out.println(e);
@@ -96,17 +95,17 @@ public class DocumentScreen implements Screen {
     
     
     public void DeleteFile() {    	
-    	System.out.println("Please Enter the Filename:");
+    	System.out.println("Please Enter the Document name:");
         String fileName = this.getInputString();
-        System.out.println("You are deleting a file named: " + fileName);
+        System.out.println("Are You Sure to Delete Document: " + fileName);
         
 		Path path = FileSystems.getDefault().getPath(DocumentDirectory.name + fileName).toAbsolutePath();
 		File file = path.toFile();
 	      if (file.delete()) {
-	    	  System.out.println("Deleted File: " + file.getName());
+	    	  System.out.println("Document Deleted Successfully! " + file.getName());
 	    	  dir.getFiles().remove(file);
 	      } else {
-	        System.out.println("Failed to delete file:" + fileName + ", file was not found.");
+	        System.out.println("Sorry You Can't Delete:" + fileName + ", Doc Was Not Found!");
 	      }
     }
     

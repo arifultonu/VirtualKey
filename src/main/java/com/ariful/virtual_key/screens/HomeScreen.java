@@ -27,7 +27,7 @@ public class HomeScreen implements Screen {
     
     @Override
     public void MainMenu() {
-    	System.out.println("Menu Name");
+    	System.out.println("Menu:");
         for (String allMenu : menuName)  {
             System.out.println(allMenu);
         }
@@ -67,11 +67,6 @@ public class HomeScreen implements Screen {
     }
 
     public void ShowFiles() {
-
-        //TODO: Get the files from the Directory
-    	
-    	//Finished TODO Task
-
         System.out.println("List of Files: ");
     	DocumentDirectoryService.PrintFiles();
 

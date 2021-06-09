@@ -11,10 +11,8 @@ public class DocumentDirectory {
 
    public static final String name = "src/main/file-directory/";
    
-    private ArrayList<File> files = new ArrayList<File>();
-    
-    Path path = FileSystems.getDefault().getPath(name).toAbsolutePath();
-    
+    private ArrayList<File> files = new ArrayList<File>();    
+    Path path = FileSystems.getDefault().getPath(name).toAbsolutePath();    
     File Dfiles = path.toFile();
        
     public String getName() {
@@ -26,12 +24,8 @@ public class DocumentDirectory {
     	files.forEach(f -> System.out.println(f));
     }
 
-    public ArrayList<File> fillFiles() {
-    	
-        File[] directoryFiles = Dfiles.listFiles();
-        
-        
-        
+    public ArrayList<File> fillFiles() {    	
+        File[] directoryFiles = Dfiles.listFiles();     
     	files.clear();
     	for (int i = 0; i < directoryFiles.length; i++) {
     		if (directoryFiles[i].isFile()) {
@@ -39,19 +33,17 @@ public class DocumentDirectory {
     		}
     	}
     	
-    	Collections.sort(files);
-    	
+    	Collections.sort(files);    	
     	return files;
     }
 
-    public ArrayList<File> getFiles() {
-    	
+    public ArrayList<File> getFiles() {    	
     	fillFiles();
     	return files;
     }    
     
-    public void mergeSort() {
-    	
-    }
+//    public void mergeSort() {
+//    	
+//    }
     
 }
