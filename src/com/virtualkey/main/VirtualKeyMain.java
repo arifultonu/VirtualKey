@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.virtualkey.services.FileServices;
+
 
 public class VirtualKeyMain {
 
@@ -59,7 +61,8 @@ public class VirtualKeyMain {
 	        switch(option) {
 
 	            case 1: 	            	
-	            	System.out.println("All File Shown: \n");
+	            	System.out.println("All Files: \n");
+	            	ShowAllFiles();
 	            	
 	                break;	                
 	            case 2:
@@ -80,6 +83,11 @@ public class VirtualKeyMain {
 	                break;
 	        }
 	        
+	    }
+		
+		public static void  ShowAllFiles() {
+	    	FileServices.PrintFiles();
+
 	    }
 		
 }
