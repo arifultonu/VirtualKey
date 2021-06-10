@@ -7,7 +7,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 
-public class DocumentDirectory {
+public class FileDirectory {
 
    public static final String name = "src/main/file-directory/";
    
@@ -41,9 +41,6 @@ public class DocumentDirectory {
     	fillFiles();
     	return files;
     }    
-    
-//    public void mergeSort() {
-//    	
-//    }
+
     
 }

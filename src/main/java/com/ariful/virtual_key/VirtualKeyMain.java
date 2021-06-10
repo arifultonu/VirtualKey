@@ -7,10 +7,9 @@ public class VirtualKeyMain {
     public static void main(String[] args) {
     	HomeScreen home = new HomeScreen();
     	
-    	System.out.println("Hello! \n I'm Md. Ariful Islam");
+    	System.out.println("Project Name: VirtualKey");
+    	System.out.println("Developer Name: Md. Ariful Islam");
         System.out.println("From Dhaka, Bangldesh");
-        System.out.println("\n");        
-    	
     	home.MenuList();
     	home.InputFromUser();
 

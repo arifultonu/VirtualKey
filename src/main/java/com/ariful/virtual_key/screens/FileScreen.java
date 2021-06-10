@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.ariful.virtual_key.entities.DocumentDirectory;
-import com.ariful.virtual_key.services.DocumentServices;
+import com.ariful.virtual_key.entities.FileDirectory;
+import com.ariful.virtual_key.services.FileServices;
 
 
-public class DocumentScreen implements Screen {
+public class FileScreen implements ScreenInterface {
 	
-	private DocumentDirectory dir = new DocumentDirectory();	
+	private FileDirectory dir = new FileDirectory();	
 	private ArrayList<String> options = new ArrayList<>();
 
-    public DocumentScreen() {
+    public FileScreen() {
     	
-    	options.add("1. Add Document");
-        options.add("2. Delete Document");
-        options.add("3. Search Document");
+    	options.add("1. Add File");
+        options.add("2. Delete File");
+        options.add("3. Search File");
         options.add("4. Return to Main Menu");
         
     }
     
     @Override
     public void MainMenu() {
-    	System.out.println("Document Options Menu");
+    	System.out.println("File Options Menu");
         for (String s : options) {
             System.out.println(s);
         }
@@ -72,20 +72,20 @@ public class DocumentScreen implements Screen {
     }
    
     public void AddFile() {
-        System.out.println("Please Enter the Document Name:");
+        System.out.println("Please Enter the File Name:");
         String fileName = this.getInputString();
-        System.out.println("You are adding a Document named: " + fileName);
+        System.out.println("You are adding a File named: " + fileName);
         
 		try {
-			Path path = FileSystems.getDefault().getPath(DocumentDirectory.name + fileName).toAbsolutePath();
+			Path path = FileSystems.getDefault().getPath(FileDirectory.name + fileName).toAbsolutePath();
 			File file = new File(dir.getName() + fileName);
 			
 		      if (file.createNewFile()) {
-		    	  System.out.println("Document Created Successfully! " + file.getName());
+		    	  System.out.println("File Created Successfully! " + file.getName());
 		    	  dir.getFiles().add(file);
 		    	  
 		      } else {
-		        System.out.println("Sorry You Can't Add Duplicate Document!");
+		        System.out.println("Sorry You Can't Add Duplicate File!");
 		      }
 		}catch (IOException e){
 			System.out.println(e);
@@ -95,14 +95,14 @@ public class DocumentScreen implements Screen {
     
     
     public void DeleteFile() {    	
-    	System.out.println("Please Enter the Document name:");
+    	System.out.println("Please Enter the File name:");
         String fileName = this.getInputString();
-        System.out.println("Are You Sure to Delete Document: " + fileName);
+        System.out.println("Are You Sure to Delete File: " + fileName);
         
-		Path path = FileSystems.getDefault().getPath(DocumentDirectory.name + fileName).toAbsolutePath();
+		Path path = FileSystems.getDefault().getPath(FileDirectory.name + fileName).toAbsolutePath();
 		File file = path.toFile();
 	      if (file.delete()) {
-	    	  System.out.println("Document Deleted Successfully! " + file.getName());
+	    	  System.out.println("File Deleted Successfully: " + file.getName());
 	    	  dir.getFiles().remove(file);
 	      } else {
 	        System.out.println("Sorry You Can't Delete:" + fileName + ", Doc Was Not Found!");
@@ -118,7 +118,7 @@ public class DocumentScreen implements Screen {
         
         for(int i = 0; i < files.size(); i++) {
 			if(files.get(i).getName().equals(fileName)) {
-				System.out.println("Found " + fileName);
+				System.out.println("Found: " + fileName);
 				found = true;
 			}
         }

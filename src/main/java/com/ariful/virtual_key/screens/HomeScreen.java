@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.ariful.virtual_key.services.DocumentDirectoryService;
-import com.ariful.virtual_key.services.DocumentServices;
+import com.ariful.virtual_key.services.FileDirectoryService;
+import com.ariful.virtual_key.services.FileServices;
 
 
-public class HomeScreen implements Screen {   
+public class HomeScreen implements ScreenInterface {   
 
     private ArrayList<String> menuName = new ArrayList<>();
 
 
     public HomeScreen() {
-        menuName.add("1. Display All Documents");
-        menuName.add("2. Sub Menu");
+        menuName.add("1. Display All Files");
+        menuName.add("2. Sub Menu Options");
         menuName.add("3. Close Application");
 
     }
@@ -27,7 +27,7 @@ public class HomeScreen implements Screen {
     
     @Override
     public void MainMenu() {
-    	System.out.println("Menu:");
+    	System.out.println("\n Menu:");
         for (String allMenu : menuName)  {
             System.out.println(allMenu);
         }
@@ -51,9 +51,9 @@ public class HomeScreen implements Screen {
                 break;
                 
             case 2: 
-            	DocumentServices.setCurrentScreen(DocumentServices.DocumentScreen);
-                DocumentServices.getCurrentScreen().MainMenu();
-                DocumentServices.getCurrentScreen().InputFromUser();
+            	FileServices.setCurrentScreen(FileServices.FileScreen);
+                FileServices.getCurrentScreen().MainMenu();
+                FileServices.getCurrentScreen().InputFromUser();
                 
                 this.MainMenu();
                 
@@ -68,7 +68,7 @@ public class HomeScreen implements Screen {
 
     public void ShowFiles() {
         System.out.println("List of Files: ");
-    	DocumentDirectoryService.PrintFiles();
+    	FileDirectoryService.PrintFiles();
 
     }
     
